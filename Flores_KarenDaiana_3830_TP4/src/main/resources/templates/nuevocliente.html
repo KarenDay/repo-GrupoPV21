@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>ALTA DE CLIENTE</title>
+		<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.6.0-1/css/bootstrap.min.css}">
+	</head>
+<body>
+	<!-- Header -->
+		<header th:replace="/layouts/header :: header"></header>
+	<!-- Fin Header -->
+	<!-- Container -->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-10 mb-3">
+					<!-- Formulario -->
+						<h1 class="text-center">Nuevo Cliente </h1>
+						<hr>	
+						<div class="container bg-secondary rounded-lg" style="max-width: 500px;">
+							
+							<form class="pb-1" th:action="@{/cliente/guardar}" th:object="${clienteNuevo}" method="post">
+							  <!-- Tipo de Documento -->
+							  <div class="form-group text-center text-md-left text-white">
+							    <label for="tipodocCliente">Tipo Documento</label>
+							    <div class="input-group mb-3">
+								  <select class="custom-select" id="tipoDocCliente" th:field="*{tipoDocumento}">
+								    <option value= "" selected>Seleccionar</option>
+								    <option value="dni">DNI</option>
+								    <option value="pasaporte">Pasaporte</option>
+								  </select>
+								</div>
+							  </div>
+							  <!-- Fin Tipo de Documento -->
+							  <!-- Numero de Doc -->
+							  <div class="form-group text-center text-md-left text-white">
+							  	 <label for="nroDocCliente">Numero de Documento</label>
+							  	 <input class="form-control" type="number" placeholder="Ingrese numero de documento" id="nroDocCliente" th:field="*{nroDocumento}">
+							  </div>
+							  <!-- Fin Numero de Doc -->
+							  <!-- Nombre de Cliente -->
+							  <div class="form-group text-center text-md-left text-white">
+							  	 <label for="nombreCliente">Ingrese nombre y apellido</label>
+							  	 <input class="form-control" type="text" placeholder="Nombre Completo" id="nombreCliente" th:field="*{nombreApellido}">
+							  </div>
+							  <!-- Fin Nombre de Cliente -->
+							  <!-- Email -->
+							  <div class="form-group text-center text-md-left text-white">
+							  	 <label for="emailCliente">Ingrese email</label>
+							  	 <input class="form-control" type="email" placeholder="email@example.com" id="emailCliente" th:field="*{email}">
+							  </div>
+							  <!-- Fin Email -->
+							  <!-- Contraseña  -->
+							  <div class="form-group text-center text-md-left text-white">
+							  	 <label for="passwordCliente">Ingrese Contraseña</label>
+							  	 <input class="form-control" type="password" placeholder="Ingrese contraseña" id="passwordCliente" th:field="*{password}">
+							  </div>
+							  <!-- Fin Contraseña -->
+							  <!-- Fecha de Nacimiento -->
+							  <div class="form-group text-center text-md-left text-white">
+							  	 <label for="fechaNacCliente">Ingrese Fecha de Nacimiento</label>
+							  	 <input class="form-control" type="date" placeholder="Ingrese contraseña" id="fechaNacCliente" th:field="*{fechaNacimiento}" >
+							  </div>	
+							  <!-- Fin Fecha de Nacimiento -->
+							  <!-- Codigo de Area -->
+							  <div class="form-group text-center text-md-left text-white">
+							  	 <label for="codAreaCliente">Ingrese código de área</label>
+							  	 <input class="form-control" type="number" placeholder="Ingrese codigo de área" id="codAreaCliente" th:field="*{codigoAreaTelefono}" >
+							  </div>
+							  <!-- Fin Codigo de Area -->
+							  <!-- Numero de Telefono -->
+							  <div class="form-group text-center text-md-left text-white">
+							  	 <label for="nroTelefonoCliente">Ingrese número de teléfono</label>
+							  	 <input class="form-control" type="number"  placeholder="número de teléfono" id="nroTelefonoCliente" th:field="*{nrotelefono}"> 
+							  </div>
+							  <!-- Fin Numero de Telefono -->
+							  <!-- Fecha de Ultima Compra -->
+							  <div class="form-group text-center text-md-left text-white">
+							  	 <label for="ultCompraCliente">Ingrese Fecha de Ultima Compra</label>
+							  	 <input class="form-control" type="date" placeholder="Última compra" id="ultCompraCliente" th:field="*{fechaUltimaCompra}" >
+							  </div>					 
+							  <!-- Fin Fecha de Ultima Compra -->
+							  <div class="form-group">
+							  		<button type="submit" class="btn btn-light btn-lg btn-block display: flex mb-md-3">Guardar</button>
+							  </div>
+							  
+							</form>
+						</div>	
+							
+					<!-- Fin Formulario -->
+			
+				</div>
+				<!-- Aside -->
+					<div class="col-md-2">
+						<aside th:replace="/layouts/publicidad :: aside"></aside>
+					</div>
+				<!-- Fin Aside -->
+			</div>
+		</div>
+		<!-- Formulario -->
+		<!-- Fin Formulario -->
+	<!-- Fin Container -->	
+	<!-- Footer -->
+		<footer th:replace="/layouts/footer :: footer"></footer>
+	<!-- Fin Footer -->
+	
+		<script type="text/javascript" th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+		<script type="text/javascript" th:src="@{/webjars/popper.js/1.16.1/dist/umd/popper.min.js}"></script>
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/4.6.0-1/js/bootstrap.min.js}"></script>
+</body>
+</html>

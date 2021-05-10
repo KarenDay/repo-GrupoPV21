@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Clientes</title>
+		<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.6.0-1/css/bootstrap.min.css}">
+	</head>
+<body>
+	<!-- Header -->
+		<header th:replace="/layouts/header :: header"></header>
+	<!-- fin Header -->
+		<!-- container -->
+			<div class="container-fluid">
+				<div class="row"> 
+						<div class="col-md-10 mb-5 col-12"> 
+							<h1 class="text-center">Listado de Clientes</h1>
+							<hr>
+							<!-- Table -->
+								<table class="table table-striped table-dark">
+								  <thead>
+								    <tr class="text-center">
+								      <th scope="col">Tipo de Documento</th>
+								      <th scope="col">Numero de Documento</th>
+								      <th scope="col">Nombre y Apellido</th>
+								      <th scope="col">DNI</th>
+								      <th> Fecha de Nacimiento </th>
+										<th> Fecha de ultima compra </th>
+										<th> Edad </th>
+										<th> Telefono </th>
+										<th> Datos Adicionales</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr th:each="cliente : ${clientes}">
+										<td align="center" th:text="${cliente.tipoDocumento}"> </td>
+										<td align="center" th:text="${cliente.nroDocumento}"></td>
+										<td align="center" th:text="${cliente.pasarNombreAMayuscula}"></td>
+										<td align="center" th:text="${cliente.email}"></td>
+										
+										<td align="center" th:text="${#temporals.format(cliente.fechaNacimiento,'dd/MM/yyyy')}"></td>
+										<td align="center" th:text="${#temporals.format(cliente.fechaUltimaCompra,'dd/MM/yyyy')}"></td>
+										<td align="center" th:text="${cliente.calcularEdad}"></td>
+										<td align="center" th:text="${cliente.obtenerNroTelefono}"></td>
+										
+										<td >
+										 	<div > T desde Ultima Compra: <span th:text="${cliente.calcularFechaUltimaCompra}"> </span> </div>
+											<div > T desde Fecha de Nacimiento: <span th:text="${cliente.calcularTiempoDesdeFechaNacimiento}">	</span> </div>
+											<div > T hasta cumpleaños: <span th:text="${cliente.calcularTiempoHastaCumpleanios}"> </span> </div>
+										</td>
+										
+										
+								    </tr>
+								  </tbody>
+								</table>
+							<!-- Fin Table -->
+						</div>
+						<div class="col-2">
+							<!-- aside -->
+								<aside th:replace="/layouts/publicidad :: aside"></aside>
+							<!-- fin aside -->
+						</div>
+				</div>
+			</div>	
+		<!-- fin container -->
+	
+	<!-- Footer -->
+		<footer th:replace="/layouts/footer :: footer"></footer>
+	<!-- Fin Footer -->
+	<script type="text/javascript" th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/popper.js/1.16.1/dist/umd/popper.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/4.6.0-1/js/bootstrap.min.js}"></script>
+</body>
+</html>

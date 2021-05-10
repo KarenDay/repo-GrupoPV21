@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<title>Alta de un producto</title>
+		<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.6.0-1/css/bootstrap.min.css}">
+	</head>
+	<body>
+		<!--encabezado  -->
+		<header th:replace="/layouts/header :: header"></header>
+		<!-- Fin encabezado -->
+		<!-- Inicio de container -->
+		<div class="container-fluid"> 
+			<div class="row"> 
+				<div class="col-md-10 col-12 mb-3"> 
+				<!-- Formulario -->
+					<h1 class="text-center">Nuevo Producto </h1>	
+						<div class="container bg-secondary rounded-lg" style="max-width: 500px;"> 
+						<hr>
+							<form class="pb-1" th:action="@{/producto/guardar}" th:object="${producto}" method="post"> 
+								<!-- Codigo de producto -->
+							  	<div class="form-group text-center text-md-left text-white">
+							  	 	<label for="codigoProd">Codigo del producto</label>
+							  	 	<input class="form-control" type="number" placeholder="Codigo" id="codigoProd" th:field="*{codigo}">
+							    </div>
+							  	<!-- Fin Codigo de producto -->
+							  	<!-- Nombre de producto -->
+								<div class="form-group text-center text-md-left text-white">
+								  	 <label for="nombreProd">Nombre del producto</label>
+								  	 <input class="form-control" type="text" placeholder="Nombre" id="nombreProd" th:field="*{nombre}">
+								</div>
+								<!-- Fin Nombre de producto -->
+								<!-- Precio de producto -->
+							  	<div class="form-group text-center text-md-left text-white">
+							  	 	<label for="precioProd">Precio del producto</label>
+							  	 	<input class="form-control" type="number" step="0.01" placeholder="Codigo" id="precioProd" th:field="*{precio}">
+							    </div>
+							  	<!-- Fin Precio de producto -->
+							  	<!-- Marca de producto -->
+								<div class="form-group text-center text-md-left text-white">
+								  	 <label for="marcaProd">Marca del producto</label>
+								  	 <input class="form-control" type="text" placeholder="Marca" id="marcaProd" th:field="*{marca}">
+								</div>
+								<!-- Fin Marca de producto -->
+								<!-- Stock de producto -->
+							  	<div class="form-group text-center text-md-left text-white">
+							  	 	<label for="stockProd">Stock del producto</label>
+							  	 	<input class="form-control" type="number" placeholder="Stock" id="stockProd" th:field="*{stock}">
+							    </div>
+							  	<!-- Fin Stock de producto -->
+							  	<div class="form-group">
+							  		<button type="submit" class="btn btn-light btn-lg btn-block display: flex mb-md-3">Guardar</button>
+							  	</div>
+							</form>
+						</div>
+				<!-- Fin Formulario -->
+				</div>
+				<!-- Aside -->
+				<div class="col-md-2">
+					<aside th:replace="/layouts/publicidad :: aside"></aside>
+				</div>
+				<!-- Fin Aside -->
+			</div>
+		</div>
+		
+		<!-- Footer -->
+			<footer th:replace="/layouts/footer :: footer"></footer>
+		<!-- Fin footer -->	
+		
+		<script type="text/javascript" th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+		<script type="text/javascript" th:src="@{/webjars/popper.js/1.16.1/dist/umd/popper.min.js}"></script>
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/4.6.0-1/js/bootstrap.min.js}"></script>
+	</body>
+</html>

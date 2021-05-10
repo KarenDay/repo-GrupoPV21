@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+	
+	</head>
+		<body>
+			<header th:fragment="header">
+				<div class="jumbotron jumbotron-fluid"
+					style="background-image: url(/images/imagen.jpg); background-size:100%; display:block; height:auto">
+				  <div class="container">
+				    <h1 class="display-4 text-white">Pipo SRL</h1>
+				    <p class="lead text-white" >Empresa Control de Carga de Clientes y Productos seleccionados a una lista</p>
+				 		 
+					 				<ul class="nav nav-tabs">
+									  <li class="nav-item">
+									    <a class="nav-link active" href="/principal">Principal</a>
+									  </li>
+									  <!-- dropdown Cliente -->
+									  <li class="nav-item dropdown">
+									    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cliente</a>
+									    <div class="dropdown-menu">
+										      <a class="dropdown-item" href="/cliente/nuevo">Agregar nuevo</a>
+										      <a class="dropdown-item" href="/cliente/listado">Listado</a> 
+										        
+										</div>
+									  </li>
+									  <!-- Fin dropdown Cliente -->
+									  <!-- dropdown Producto -->
+									  <li class="nav-item dropdown">
+									    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Producto</a>
+									    <div class="dropdown-menu">
+										      <a class="dropdown-item" href="/producto/nuevo">Agregar nuevo</a>
+										      <a class="dropdown-item" href="/producto/listado">Listado</a>    
+										      <a class="dropdown-item" href="/producto/ultimo">Ultimo Producto</a>    
+										</div>
+									  </li>
+									  <!-- Fin dropdown Producto -->
+									</ul>
+					 		 	
+				 	
+				  </div>
+				</div>
+			</header>
+			
+		</body>
+</html>

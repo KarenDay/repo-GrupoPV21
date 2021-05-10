@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Producto</title>
+		<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.6.0-1/css/bootstrap.min.css}">
+	</head>
+	<body>
+		<!-- Header -->
+			<header th:replace="/layouts/header :: header"></header>
+		<!-- fin Header -->
+		<!-- container -->
+			<div class="row">
+				
+				<div class="col-md-10"> 
+					<div class="row"> 
+						<div class="col-md-4"></div>
+						<div class="col-12 col-md-4 ">
+							<div class="container">
+								<h2 class="text-center"> Detalles del ultimo producto</h2>
+								<hr>
+								<div class="text-center text-white bg-dark d-flex flex-column" >
+									<p> Codigo: <span th:text="${ultimoProducto.codigo}"> </span> </p>
+									<p> Nombre: <span th:text="${ultimoProducto.nombre}"> </span> </p>
+									<p> Precio: $ <span th:text="${ultimoProducto.precio}"> </span> </p>
+									<p> Marca : <span th:text="${ultimoProducto.marca}"> </span> </p>
+									<p> Stock : <span th:text="${ultimoProducto.stock}"> </span> </p>
+								</div>
+								
+							</div>
+						</div>
+						<div class="col-md-4"></div>
+					</div>
+				</div>
+					
+					
+				<div class="col-md-2 mt-3 mt-md-0">
+					<!-- aside -->
+						<aside th:replace="/layouts/publicidad :: aside"></aside>
+					<!-- fin aside -->
+				</div>
+			</div>
+		<!-- fin container -->
+		
+			    
+				 
+		<!-- Footer -->
+			<footer th:replace="/layouts/footer :: footer"></footer>
+		<!-- Fin Footer -->
+		<script type="text/javascript" th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+		<script type="text/javascript" th:src="@{/webjars/popper.js/1.16.1/dist/umd/popper.min.js}"></script>
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/4.6.0-1/js/bootstrap.min.js}"></script>
+	</body>
+</html>
